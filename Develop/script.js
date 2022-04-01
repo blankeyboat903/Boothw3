@@ -1,27 +1,41 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var password = document.querySelector('#password');
-var chars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var chars = "";
+var passLower = "abcdefghijklmnopqrstuvwxyz";
+var passUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var passNum = "0123456789";
+var passSpec = `!"#$%&'()*+,-./:;<=>?@[\\]^_\`\{|\}~`;
 
 // Write password to the #password input
 function generatePassword(){
 
   var response = prompt('How many Characters in your password?')
+  var specialChar = confirm("Do you want special characters in the password?");
+  var numericChar = confirm("Do you want numberic characters in the password?");
+  var lowerCaseChar = confirm("Do you want lower case characters in the password?");
+  var passLength = response
 
   if(response <= 8 || response >= 128){
-    return;
+    return response;
   }
-  else if(response >= 8 && response <= 128){
-    confirm("Lower case characters?");
-    confirm("Upper case characters?");
-    confirm("Numeric Characters?");
-    confirm("Special characters?"); 
+  else{
+    if (specialChar === true){
+      chars += passSpec;
+    }
+    if (numericChar === true){
+      chars += passNum;
+    }
+    if (lowerCaseChar === true){
+      chars += passLower;
+    }
+    if (UpperCaseChar === true){
+      chars += passUpper;  
+    }
+    console.log(chars)
+    return chars;
   }
 
-  var index = Math.floor(Math.random() * response.length);
-  var password = options[index];
-
-  
   
 
 
